@@ -1,25 +1,14 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
-//import { createStackNavigator } from '@react-navigation/stack';
-//import { createAppContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
 import Home from '../screens/home';
 import ReviewDetails from '../screens/reviewDetails';
+import Header from '../shared/header';
 
-
-const Stack = createNativeStackNavigator(
-//{
-//    defaultNavigationOptions: {
-//       headerTintColor: '#444',
-//       headerStyle: { backgroundColor: '#eee', height: 60 }
-//     }
-//}
-);
+const Stack = createNativeStackNavigator();
 
 function HomeStack() {
   return (
-//    <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
                 headerStyle: { backgroundColor: '#eee',
@@ -27,8 +16,10 @@ function HomeStack() {
                                height: 60 }}}
       >
         <Stack.Screen name="Home" component={Home}
-        options={{title: 'GameZone',
+        options={{
+        //title: 'GameZone',
         //headerStyle: { backgroundColor: '#eee' }
+        headerTitle: () => <Header title="GameZone" />,
         }}
         />
         <Stack.Screen name="ReviewDetails" component={ReviewDetails}
@@ -37,7 +28,6 @@ function HomeStack() {
          }}
          />
       </Stack.Navigator>
-//    </NavigationContainer>
   );
 }
 

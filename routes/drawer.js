@@ -9,7 +9,9 @@ const Drawer = createDrawerNavigator();
 export default function Navigator() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home">
+      <Drawer.Navigator screenOptions={{
+                                  headerShown: false,
+                                }}>
         <Drawer.Screen name="Home" component={HomeStack} />
         <Drawer.Screen name="About" component={AboutStack} />
       </Drawer.Navigator>
